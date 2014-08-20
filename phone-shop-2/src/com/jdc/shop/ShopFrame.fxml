@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="800.0" prefWidth="1202.0" styleClass="root" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.shop.ShopFrame">
+   <top>
+      <HBox alignment="CENTER" prefHeight="116.0" prefWidth="1202.0" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="1202.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="message" prefHeight="16.0" prefWidth="836.0" />
+         </children>
+         <padding>
+            <Insets left="65.0" />
+         </padding></HBox>
+   </bottom>
+   <right>
+      <VBox prefHeight="626.0" prefWidth="296.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane>
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="27.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="259.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="32.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label styleClass="header-label" text="Name" GridPane.columnIndex="1" />
+                  <TextField fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label styleClass="header-label" text="Gender" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label styleClass="header-label" text="NRC Number" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label styleClass="header-label" text="Date Of Birth" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label styleClass="header-label" text="Address" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <RadioButton fx:id="male" mnemonicParsing="false" styleClass="header-label" text="Male" />
+                        <RadioButton fx:id="female" mnemonicParsing="false" styleClass="header-label" text="Female" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="nrc" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <DatePicker fx:id="dob" prefHeight="26.0" prefWidth="266.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <TextArea fx:id="address" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.rowSpan="2" />
+                  <ComboBox fx:id="township" prefHeight="26.0" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#initViewInputs" prefHeight="26.0" prefWidth="120.0" text="Clear" />
+                        <Button mnemonicParsing="false" onAction="#register" prefHeight="26.0" prefWidth="120.0" text="Regist" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="306.0" prefWidth="906.0">
+               <children>
+                  <Label layoutX="65.0" layoutY="14.0" styleClass="header-label" text="Registrations">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="regTable" layoutX="65.0" layoutY="63.0" opacity="0.8" prefHeight="198.0" prefWidth="663.0">
+                    <columns>
+                      <TableColumn fx:id="regName" prefWidth="168.0" text="Name" />
+                      <TableColumn fx:id="regNrc" minWidth="0.0" prefWidth="152.0" text="NRC Number" />
+                        <TableColumn fx:id="regAddress" prefWidth="339.0" text="Address" />
+                    </columns>
+                  </TableView>
+                  <DatePicker fx:id="dtFrom" layoutX="65.0" layoutY="264.0" promptText="Date From" />
+                  <DatePicker fx:id="dtTo" layoutX="253.0" layoutY="264.0" promptText="Date To" />
+                  <Button layoutX="438.0" layoutY="264.0" mnemonicParsing="false" onAction="#sell" prefHeight="26.0" prefWidth="130.0" text="Sell" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="324.0" prefWidth="906.0">
+               <children>
+                  <Label layoutX="65.0" layoutY="21.0" styleClass="header-label" text="Phone Card To Sell">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="selTable" layoutX="65.0" layoutY="62.0" opacity="0.8" prefHeight="248.0" prefWidth="829.0">
+                    <columns>
+                      <TableColumn fx:id="selName" prefWidth="175.0" text="Name" />
+                      <TableColumn fx:id="selNrc" prefWidth="155.0" text="NRC Number" />
+                        <TableColumn fx:id="selAddress" prefWidth="331.0" text="Address" />
+                        <TableColumn fx:id="selCard" prefWidth="164.0" text="Phone Card Number" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

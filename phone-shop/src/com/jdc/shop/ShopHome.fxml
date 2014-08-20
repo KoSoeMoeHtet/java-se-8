@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="460.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.shop.ShopHome">
+   <top>
+      <HBox fx:id="box" prefHeight="60.0" prefWidth="660.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="Home" mnemonicParsing="false" prefHeight="60.0" prefWidth="135.0" text="Home" />
+            <Button id="Registration" mnemonicParsing="false" prefHeight="60.0" prefWidth="135.0" text="Registration" />
+            <Button id="Sell" mnemonicParsing="false" prefHeight="60.0" prefWidth="135.0" text="Sell" />
+            <Button id="SoldOut" mnemonicParsing="false" prefHeight="60.0" prefWidth="135.0" text="Sold Out List" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <StackPane fx:id="view" prefHeight="400.0" prefWidth="660.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

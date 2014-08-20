@@ -1,0 +1,5 @@
+1	Bahan
+2	Yankin
+3	Botataung
+4	Tarmwe
+5	Papadan
