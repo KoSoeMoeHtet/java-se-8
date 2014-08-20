@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jdc.shop.model.FileModel;
 import com.jdc.shop.model.Township;
 import com.jdc.shop.model.TownshipModel;
 
-public class TownshipModelBuf implements TownshipModel {
+public class TownshipModelBuf implements TownshipModel, FileModel {
 	
 	private static TownshipModel model;
 	
@@ -24,7 +25,7 @@ public class TownshipModelBuf implements TownshipModel {
 	private TownshipModelBuf() {
 		townships = new ArrayList<>();
 		try (BufferedReader br = new BufferedReader(new FileReader(
-				"Township.txt"))) {
+				getFileName()))) {
 			String line = null;
 			
 			while((line = br.readLine()) != null) {
@@ -44,6 +45,17 @@ public class TownshipModelBuf implements TownshipModel {
 	@Override
 	public List<Township> getTownships() {
 		return townships;
+	}
+
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getFileName() {
+		return String.format("%s.txt", Township.class.getSimpleName());
 	}
 
 }

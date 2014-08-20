@@ -34,10 +34,11 @@ import com.jdc.shop.model.Township;
 public class ShopFrame implements Initializable {
 
 	private RegistrationModel model;
+	private ModelType type = ModelType.NIO;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		model = ModalManager.getRegistrationModel(ModelType.File);
+		model = ModalManager.getRegistrationModel(type);
 		ToggleGroup group = new ToggleGroup();
 		group.getToggles().addAll(male, female);
 
@@ -79,7 +80,7 @@ public class ShopFrame implements Initializable {
 
 		// township
 		township.getItems().clear();
-		township.getItems().addAll(ModalManager.getTownshipModel(ModelType.File).getTownships());
+		township.getItems().addAll(ModalManager.getTownshipModel(type).getTownships());
 	}
 
 	public void register() {

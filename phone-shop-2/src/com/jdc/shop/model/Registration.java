@@ -1,9 +1,12 @@
 package com.jdc.shop.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Registration {
+public class Registration implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	public static String DATE = "yyyyMMdd HH:mm:ss";
 	
 	private String name;

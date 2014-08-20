@@ -1,9 +1,17 @@
 package com.jdc.shop.model;
 
-public class Township {
+import java.io.Serializable;
+
+public class Township implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String name;
+	
+	public Township(String [] array) {
+		id = Integer.parseInt(array[0]);
+		name = array[1];
+	}
 	
 	@Override
 	public String toString() {

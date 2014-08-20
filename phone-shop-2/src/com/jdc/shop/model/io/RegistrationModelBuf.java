@@ -12,12 +12,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.jdc.shop.model.FileModel;
 import com.jdc.shop.model.NumberGenerator;
 import com.jdc.shop.model.Registration;
 import com.jdc.shop.model.RegistrationModel;
 import com.jdc.shop.model.Township;
 
-public class RegistrationModelBuf implements RegistrationModel {
+public class RegistrationModelBuf implements RegistrationModel, FileModel {
 
 	public static String DATE = "yyyyMMdd HH:mm:ss";
 
@@ -34,11 +35,10 @@ public class RegistrationModelBuf implements RegistrationModel {
 		return model;
 	}
 
-	public RegistrationModelBuf() {
+	private RegistrationModelBuf() {
 		list = new ArrayList<Registration>();
 
-		try (BufferedReader br = new BufferedReader(new FileReader(
-				"Registration.txt"))) {
+		try (BufferedReader br = new BufferedReader(new FileReader(getFileName()))) {
 			String line = null;
 
 			while ((line = br.readLine()) != null) {
@@ -70,28 +70,14 @@ public class RegistrationModelBuf implements RegistrationModel {
 	@Override
 	public void update(Date from, Date to) {
 		RegistrationModel.update(from, to, list, gen);
-		this.saveFile();
+		this.save();
 	}
 
 	@Override
 	public void create(Registration regist) {
 		list.add(regist);
-		this.saveFile();
+		this.save();
 	}
-
-	private void saveFile() {
-
-		try (PrintWriter pw = new PrintWriter("Registration.txt")) {
-			for (Registration r : list) {
-				pw.println(getLine(r));
-			}
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-
-	}
-
 
 	private Registration getRegistration(String line)
 			throws ParseException {
@@ -143,6 +129,23 @@ public class RegistrationModelBuf implements RegistrationModel {
 		sb.append(r.getCardNumber());
 
 		return sb.toString();
+	}
+
+	@Override
+	public void save() {
+		try (PrintWriter pw = new PrintWriter(getFileName())) {
+			for (Registration r : list) {
+				pw.println(getLine(r));
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public String getFileName() {
+		return String.format("%s.txt", Registration.class.getSimpleName());
 	}
 
 }
