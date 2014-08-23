@@ -16,8 +16,24 @@ public class T4CarTest {
 			
 			@Override
 			public int change(GearNumber number) {
-				// TODO Auto-generated method stub
-				return 0;
+				int speed = 0;
+				switch (number) {
+				case BACK:
+					speed = -15;
+					break;
+				case ONE:
+					speed = 10;
+					break;
+				case TWO:
+					speed = 20;
+					break;
+				case THREE:
+					speed = 30;
+					break;
+				default:
+					break;
+				}
+				return speed;
 			}
 		});
 		
@@ -26,13 +42,65 @@ public class T4CarTest {
 		
 		// by lambda expression
 		T3Car car4 = new T3Car(a -> {
-			return 0;
+			int speed = 0;
+			switch (a) {
+			case BACK:
+				speed = -15;
+				break;
+			case ONE:
+				speed = 10;
+				break;
+			case TWO:
+				speed = 20;
+				break;
+			case THREE:
+				speed = 30;
+				break;
+			default:
+				break;
+			}
+			return speed;
 		});
+		
+		car1.drive(3, GearNumber.ONE);
+		car2.drive(3, GearNumber.ONE);
+		car3.drive(3, GearNumber.ONE);
+		car4.drive(3, GearNumber.ONE);
+		
+		car1.drive(10, GearNumber.THREE);
+		car2.drive(10, GearNumber.THREE);
+		car3.drive(10, GearNumber.THREE);
+		car4.drive(10, GearNumber.THREE);
+		
+		car1.showDistance();
+		car2.showDistance();
+		car3.showDistance();
+		car4.showDistance();
 
 	}
 	
 	public static int getSpeed(GearNumber num) {
-		return 0;
+		int speed = 0;
+		switch (num) {
+		case BACK:
+			speed = -15;
+			break;
+		case ONE:
+			speed = 30;
+			break;
+		case TWO:
+			speed = 60;
+			break;
+		case THREE:
+			speed = 90;
+			break;
+		case FOUR:
+			speed = 120;
+			break;
+		default:
+			break;
+		}
+		return speed;
 	}
 
 }

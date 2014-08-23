@@ -69,7 +69,7 @@ public class RegistrationModelObj implements RegistrationModel, FileModel {
 
 	@Override
 	public void save() {
-		try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(""))) {
+		try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(getFileName()))) {
 			out.writeObject(list);
 		} catch (IOException e) {
 			e.printStackTrace();

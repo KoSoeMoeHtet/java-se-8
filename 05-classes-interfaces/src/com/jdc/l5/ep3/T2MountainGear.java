@@ -12,12 +12,16 @@ public class T2MountainGear implements T1Gear {
 			break;
 		case ONE:
 			speed = 15;
+			break;
 		case TWO:
 			speed = 30;
+			break;
 		case THREE:
 			speed = 45;
+			break;
 		case FOUR:
 			speed = 60;
+			break;
 		default:
 			break;
 		}
