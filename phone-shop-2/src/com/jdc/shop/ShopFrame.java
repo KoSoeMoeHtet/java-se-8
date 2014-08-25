@@ -34,7 +34,7 @@ import com.jdc.shop.model.Township;
 public class ShopFrame implements Initializable {
 
 	private RegistrationModel model;
-	private ModelType type = ModelType.NIO;
+	private ModelType type = ModelType.Database;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

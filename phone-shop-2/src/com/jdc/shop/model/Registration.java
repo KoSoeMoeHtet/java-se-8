@@ -9,6 +9,7 @@ public class Registration implements Serializable{
 
 	public static String DATE = "yyyyMMdd HH:mm:ss";
 	
+	private int id;
 	private String name;
 	private boolean gender = true;
 	private String nrc; 
@@ -30,6 +31,31 @@ public class Registration implements Serializable{
 		this.birthDate = birthDate;
 		this.address = address;
 		this.township = township;
+	}
+	
+	public Registration(int id, String name, boolean gender, String nrc,
+			Date birthDate, String address, Township township, Date creation,
+			Date modification, String cardNumber) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gender = gender;
+		this.nrc = nrc;
+		this.birthDate = birthDate;
+		this.address = address;
+		this.township = township;
+		this.creation = creation;
+		this.modification = modification;
+		this.cardNumber = cardNumber;
+	}
+
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -103,6 +129,4 @@ public class Registration implements Serializable{
 	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
-
-	
 }
