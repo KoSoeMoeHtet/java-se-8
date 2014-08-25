@@ -1,6 +1,6 @@
 package com.jdc.ls7.ep4;
 
-public class T1GenericMethod {
+public class T2GenericMethod {
 	
 	public static<T extends Comparable<T>> int compair(T t1, T t2) {
 		return t1.compareTo(t2);
