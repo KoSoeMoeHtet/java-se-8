@@ -89,10 +89,18 @@ public class ShopFrame implements Initializable {
 			String strName = name.getText();
 			String strNrc = nrc.getText();
 
-			if (null == strName || null == strNrc || strName.isEmpty()
-					|| strNrc.isEmpty()) {
-				throw new ShopAppException("Pleace set Name and Nrc Number.");
+			if (null == strName || strName.isEmpty()) {
+				throw new ShopAppException("Pleace set Name.");
 			}
+			
+			if (null == strNrc || strNrc.isEmpty()) {
+				throw new ShopAppException("Pleace set Nrc Number.");
+			}
+
+			// township should be selected
+			if (township.getSelectionModel().isEmpty())
+				throw new ShopAppException("Pleace select township.");
+				
 
 			// get view data
 			Registration regist = new Registration(strName, male.isSelected(),

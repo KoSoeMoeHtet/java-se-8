@@ -120,7 +120,12 @@ public class RegistrationModelDb implements RegistrationModel{
 			stmt.setBoolean(2, regist.isGender());
 			stmt.setString(3, regist.getNrc());
 			stmt.setDate(4, new java.sql.Date(regist.getBirthDate().getTime()));
-			stmt.setInt(5, regist.getTownship().getId());
+			
+			if(null != regist.getTownship())
+				stmt.setInt(5, regist.getTownship().getId());
+			else
+				stmt.setInt(5, 0);
+				
 			stmt.setString(6, regist.getAddress());
 			stmt.setTimestamp(7, new Timestamp(regist.getCreation().getTime()));
 			stmt.setTimestamp(8, new Timestamp(regist.getModification().getTime()));
