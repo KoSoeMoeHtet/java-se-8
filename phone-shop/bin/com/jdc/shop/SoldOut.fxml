@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="view" prefHeight="400.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.shop.SoldOut">
+   <children>
+      <Text layoutX="31.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sold Out List">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <TableView fx:id="table" layoutX="55.0" layoutY="85.0" prefHeight="279.0" prefWidth="573.0">
+        <columns>
+          <TableColumn fx:id="cardNum" prefWidth="134.0" text="Phone Card" />
+          <TableColumn fx:id="name" prefWidth="134.0" text="Name" />
+            <TableColumn fx:id="date" prefWidth="138.0" text="Date" />
+            <TableColumn fx:id="phone" prefWidth="164.0" text="Phone Number" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
