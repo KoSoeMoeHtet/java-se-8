@@ -1,4 +1,4 @@
-package com.jdc.ls15.ep3;
+package com.jdc.ls15.ep4;
 
 public class FunctionalInterfaceTest {
 

@@ -1,6 +1,6 @@
 package com.jdc.ls15.ep1;
 
-public class BeforeLambda {
+public class T1BeforeLambda {
 	
 	public static void main(String[] args) {
 		Thread thread = new Thread(new Runnable() {
