@@ -3,7 +3,7 @@ package com.jdc.io.ep1;
 import java.io.File;
 import java.io.IOException;
 
-public class DirectorySample {
+public class T3DirectorySample {
 	
 	public static void main(String[] args) throws IOException {
 

@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class CharStreamSample {
+public class T2CharStreamSample {
 	
 	public static void main(String[] args) {
 		try(FileReader fr = new FileReader("in.txt");

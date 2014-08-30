@@ -1,6 +1,6 @@
 package com.jdc.io.ep2;
 
-public class DataStreamSample {
+public class T4DataStreamSample {
 
 	static int counts[] = {20,23,34,44};
 	static double values[] = {1000.40, 1234.33, 457.50, 3456.00};

@@ -2,7 +2,7 @@ package com.jdc.io.ep1;
 
 import java.io.File;
 
-public class CreationSample {
+public class T1CreationSample {
 	
 	public static void main(String[] args) {
 		// creation of file object

@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class ByteStreamSample {
+public class T1ByteStreamSample {
 
 	public static void main(String[] args) {
 		// bite stream

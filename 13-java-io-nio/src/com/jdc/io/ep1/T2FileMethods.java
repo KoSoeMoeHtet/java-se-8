@@ -3,7 +3,7 @@ package com.jdc.io.ep1;
 import java.io.File;
 import java.io.IOException;
 
-public class FileMethods {
+public class T2FileMethods {
 	
 	public static void main(String[] args) throws IOException {
 		
