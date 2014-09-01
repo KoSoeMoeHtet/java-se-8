@@ -1,4 +1,4 @@
-package com.jdc.ls16.ep1;
+package com.jdc.ls16.ep2;
 
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
