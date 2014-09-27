@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="517.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.se.view.main.TutorialMain">
+   <children>
+      <Text layoutX="61.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Se Tutorial Main Menu">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Button layoutX="114.0" layoutY="138.0" mnemonicParsing="false" onAction="#showMaster" prefHeight="59.0" prefWidth="207.0" text="Master Data" />
+      <Button fx:id="btn" layoutX="114.0" layoutY="228.0" mnemonicParsing="false" onAction="#showTransaction" prefHeight="59.0" prefWidth="207.0" text="Transaction Management" />
+      <Button layoutX="114.0" layoutY="317.0" mnemonicParsing="false" onAction="#showCustomer" prefHeight="59.0" prefWidth="207.0" text="Customer Management" />
+      <Button layoutX="114.0" layoutY="403.0" mnemonicParsing="false" onAction="#showStock" prefHeight="59.0" prefWidth="207.0" text="Stock Management" />
+   </children>
+</AnchorPane>

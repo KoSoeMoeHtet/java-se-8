@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="619.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.se.view.master.MasterMenu">
+   <children>
+      <Text layoutX="26.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Master Data Management">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button layoutX="26.0" layoutY="76.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="154.0" text="Division" />
+      <Button layoutX="190.0" layoutY="76.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="154.0" text="Township" />
+      <Button layoutX="353.0" layoutY="76.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="154.0" text="Phone Maker" />
+      <Button layoutX="514.0" layoutY="76.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="154.0" text="Phone" />
+      <Button layoutX="676.0" layoutY="76.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="154.0" text="Sim Card" />
+      <StackPane fx:id="stack" layoutX="26.0" layoutY="123.0" prefHeight="485.0" prefWidth="869.0" />
+   </children>
+</AnchorPane>

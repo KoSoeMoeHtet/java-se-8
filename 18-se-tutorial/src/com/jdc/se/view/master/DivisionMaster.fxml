@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="485.0" minWidth="869.0" prefHeight="485.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.se.view.master.DivisionMaster">
+   <children>
+      <Text layoutX="37.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Divisions">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <TableView layoutX="37.0" layoutY="71.0" prefHeight="395.0" prefWidth="571.0">
+        <columns>
+          <TableColumn prefWidth="147.0" text="ID" />
+          <TableColumn prefWidth="421.0" text="Name" />
+        </columns>
+      </TableView>
+      <Label layoutX="628.0" layoutY="71.0" text="Division Name" />
+      <TextField layoutX="628.0" layoutY="96.0" prefHeight="26.0" prefWidth="225.0" />
+      <Button layoutX="628.0" layoutY="134.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Clear" />
+      <Button layoutX="729.0" layoutY="134.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Add" />
+   </children>
+</AnchorPane>
