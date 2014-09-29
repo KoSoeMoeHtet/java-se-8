@@ -7,10 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import com.jdc.se.entity.Division;
 
 public abstract class AbstractModel<T> {
 	
@@ -22,6 +21,8 @@ public abstract class AbstractModel<T> {
 	private static String DELETE = "delete from %s %s";
 	
 	private Class<T> clz;
+	protected boolean creation = false;
+	protected boolean modification = false; 
 	
 	public AbstractModel(Class<T> clz) {
 		super();
@@ -36,11 +37,20 @@ public abstract class AbstractModel<T> {
 		Connection conn = this.getConnection();
 		PreparedStatement stmt = conn.prepareStatement(sql);
 
+		int count = 0;
+		
 		List<String> keys = new ArrayList<>(params.keySet());
 		for(int i=0; i < keys.size(); i++) {
-			stmt.setObject(i + 1, params.get(keys.get(i)));
+			stmt.setObject(++count, params.get(keys.get(i)));
 		}
 		
+		if(creation) {
+			stmt.setObject(++count, new Date());
+		}
+		
+		if(modification) {
+			stmt.setObject(++count, new Date());
+		}
 		return stmt.executeUpdate();
 	}
 	
@@ -51,16 +61,20 @@ public abstract class AbstractModel<T> {
 		System.out.println(sql);
 		Connection conn = this.getConnection();
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		
+		int count = 0;
 		List<String> keys1 = new ArrayList<>(set.keySet());
 		for(int i=0; i < keys1.size(); i++) {
-			stmt.setObject(i + 1, set.get(keys1.get(i)));
+			stmt.setObject(++count, set.get(keys1.get(i)));
 		}
 
 		
 		List<String> keys2 = new ArrayList<>(where.keySet());
 		for(int i=0; i < keys2.size(); i++) {
-			stmt.setObject(i + set.size() + 1, where.get(keys2.get(i)));
+			stmt.setObject(++count, where.get(keys2.get(i)));
+		}
+
+		if(modification) {
+			stmt.setObject(++count, new Date());
 		}
 
 		return stmt.executeUpdate();
@@ -132,18 +146,35 @@ public abstract class AbstractModel<T> {
 	private Object getSetParams(Map<String, Object> set) {
 		final StringBuilder sb = new StringBuilder();
 		set.keySet().stream().forEach(s -> sb.append(s).append("=?,"));
+		if(modification) {
+			sb.append("modification=?");
+		}
 		return sb.substring(0, sb.length() - 1);
 	}
 
 	private String getInsertValues(Map<String, Object> params) {
 		final StringBuilder sb = new StringBuilder();
 		params.keySet().stream().forEach(s -> sb.append("?").append(","));
+		if(creation) {
+			sb.append("?,");
+		}
+		
+		if(modification) {
+			sb.append("?,");
+		}
 		return sb.substring(0, sb.length() - 1);
 	}
 
 	private String getInsertColumns(Map<String, Object> params) {
 		final StringBuilder sb = new StringBuilder();
 		params.keySet().stream().forEach(s -> sb.append(s).append(","));
+		if(creation) {
+			sb.append("creation,");
+		}
+		
+		if(modification) {
+			sb.append("modification,");
+		}
 		return sb.substring(0, sb.length() - 1);
 	}
 	
@@ -151,7 +182,7 @@ public abstract class AbstractModel<T> {
 	private T getObjectFromResult(ResultSet res) {
 		T t = null;
 		try {
-			Field[] fields = Division.class.getDeclaredFields();
+			Field[] fields = this.clz.getDeclaredFields();
 			t = getEntity();
 			for (Field f : fields) {
 				f.setAccessible(true);
@@ -167,7 +198,7 @@ public abstract class AbstractModel<T> {
 	
 	protected Connection getConnection() throws SQLException {
 		if(null == CONN || CONN.isClosed()) {
-			CONN = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/se-tutorial", "se-user", "sepwd");
+			CONN = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/se-tutorial", "root", "admin");
 		}
 		return CONN;
 	}
