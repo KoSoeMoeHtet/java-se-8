@@ -2,7 +2,7 @@ package com.jdc.se.entity;
 
 import java.sql.Timestamp;
 
-public class SIm_stock {
+public class Sim_stock {
 	private Integer id;
 	private Integer sim_id;
 	private Integer in;
