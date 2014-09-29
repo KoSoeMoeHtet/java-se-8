@@ -76,8 +76,8 @@ public abstract class AbstractMasterController<T> implements Initializable{
 				model.insert(getViewParam());
 			} else {
 				model.update(getViewParam(), getId());
-				this.clear(e);
 			}
+			this.clear(e);
 			this.loadTable();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
