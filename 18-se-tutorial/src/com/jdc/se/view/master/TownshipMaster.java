@@ -16,9 +16,9 @@ import javafx.util.Callback;
 
 import com.jdc.se.entity.Division;
 import com.jdc.se.entity.Township;
-import com.jdc.se.model.DivisionModel;
+import com.jdc.se.model.CommonModel;
+import com.jdc.se.model.Model;
 import com.jdc.se.model.ModelException;
-import com.jdc.se.model.TownshipModel;
 
 public class TownshipMaster extends AbstractMasterController<Township> implements 
 		Callback<CellDataFeatures<Township, String>, ObservableValue<String>> {
@@ -34,7 +34,7 @@ public class TownshipMaster extends AbstractMasterController<Township> implement
 	@FXML
 	private TextField name;
 
-	private DivisionModel dm;
+	private Model<Division> dm;
 
 	@Override
 	public ObservableValue<String> call(CellDataFeatures<Township, String> param) {
@@ -98,8 +98,8 @@ public class TownshipMaster extends AbstractMasterController<Township> implement
 			colName.setCellValueFactory(new PropertyValueFactory<>("name"));
 			colDivision.setCellValueFactory(this);
 
-			model = new TownshipModel();
-			dm = new DivisionModel();
+			model = new CommonModel<Township>(Township.class);
+			dm = new CommonModel<Division>(Division.class);
 
 			combo.getItems().clear();
 			combo.getItems().addAll(dm.getAll());

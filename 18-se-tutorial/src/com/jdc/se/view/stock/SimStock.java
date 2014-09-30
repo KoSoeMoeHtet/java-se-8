@@ -12,8 +12,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import com.jdc.se.entity.Sim;
 import com.jdc.se.entity.Sim_stock;
+import com.jdc.se.model.CommonModel;
 import com.jdc.se.model.ModelException;
-import com.jdc.se.model.SimModel;
 import com.jdc.se.model.SimStockModel;
 
 public class SimStock extends AbstractStock<Sim_stock, Sim> {
@@ -34,7 +34,7 @@ public class SimStock extends AbstractStock<Sim_stock, Sim> {
 	@Override
 	protected void init() {
 		stkModel = new SimStockModel();
-		entModel = new SimModel();
+		entModel = new CommonModel<Sim>(Sim.class);
 
 		colDate.setCellValueFactory(p -> {
 			Sim_stock stk = p.getValue();

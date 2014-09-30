@@ -14,7 +14,7 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
 
-import com.jdc.se.model.AbstractModel;
+import com.jdc.se.model.Model;
 import com.jdc.se.model.ModelException;
 import com.jdc.se.view.dialog.AlertDialog;
 
@@ -30,7 +30,7 @@ public abstract class AbstractMasterController<T> implements Initializable{
 	@FXML
 	protected Button clear;
 	
-	protected AbstractModel<T> model;
+	protected Model<T> model;
 	
 	protected abstract Object getSelectId();
 	protected abstract Map<String, Object> getViewParam();

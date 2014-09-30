@@ -10,8 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import com.jdc.se.entity.Sim;
+import com.jdc.se.model.CommonModel;
 import com.jdc.se.model.ModelException;
-import com.jdc.se.model.SimModel;
 
 public class SimMaster extends AbstractMasterController<Sim> implements Initializable {
 
@@ -84,7 +84,7 @@ public class SimMaster extends AbstractMasterController<Sim> implements Initiali
 
 	@Override
 	protected void init() {
-		model = new SimModel();
+		model = new CommonModel<Sim>(Sim.class);
 		colId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		colName.setCellValueFactory(new PropertyValueFactory<>("name"));
 		colType.setCellValueFactory(new PropertyValueFactory<>("type"));

@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import com.jdc.se.entity.Phone_maker;
-import com.jdc.se.model.PhoneMakerModel;
+import com.jdc.se.model.CommonModel;
 import com.jdc.se.view.dialog.AlertDialog;
 
 public class PhoneMakerMaster extends AbstractMasterController<Phone_maker> implements Initializable {
@@ -60,7 +60,7 @@ public class PhoneMakerMaster extends AbstractMasterController<Phone_maker> impl
 
 	@Override
 	protected void init() {
-		model = new PhoneMakerModel();
+		model = new CommonModel<Phone_maker>(Phone_maker.class);
 		colId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		colName.setCellValueFactory(new PropertyValueFactory<>("name"));
 	}

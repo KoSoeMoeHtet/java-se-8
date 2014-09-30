@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public abstract class AbstractModel<T> implements Model<T> {
+public class CommonModel<T> implements Model<T> {
 
 	private static Connection CONN;
 
@@ -25,7 +25,7 @@ public abstract class AbstractModel<T> implements Model<T> {
 	protected boolean creation = false;
 	protected boolean modification = false;
 
-	public AbstractModel(Class<T> clz) {
+	public CommonModel(Class<T> clz) {
 		super();
 		this.clz = clz;
 	}
@@ -131,8 +131,6 @@ public abstract class AbstractModel<T> implements Model<T> {
 		return stmt.executeUpdate();
 	}
 
-	protected abstract T getEntity();
-
 	private Object getWhereParams(Map<String, Object> where) {
 		if (null != where) {
 			final StringBuilder sb = new StringBuilder("where ");
@@ -185,20 +183,18 @@ public abstract class AbstractModel<T> implements Model<T> {
 	}
 
 	private T getObjectFromResult(ResultSet res) {
-		T t = null;
 		try {
 			Field[] fields = this.clz.getDeclaredFields();
-			t = getEntity();
+			T t = clz.newInstance();
 			for (Field f : fields) {
 				f.setAccessible(true);
 				f.set(t, res.getObject(f.getName()));
 			}
-
+			return t;
 		} catch (IllegalArgumentException | IllegalAccessException
-				| SQLException e) {
+				| SQLException | InstantiationException e) {
 			throw new ModelException("Please Check Format of Entity.", true);
 		}
-		return t;
 	}
 
 	protected Connection getConnection() throws SQLException {

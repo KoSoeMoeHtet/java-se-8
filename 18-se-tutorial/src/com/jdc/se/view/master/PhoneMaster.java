@@ -16,9 +16,9 @@ import javafx.util.Callback;
 
 import com.jdc.se.entity.Phone;
 import com.jdc.se.entity.Phone_maker;
+import com.jdc.se.model.CommonModel;
+import com.jdc.se.model.Model;
 import com.jdc.se.model.ModelException;
-import com.jdc.se.model.PhoneMakerModel;
-import com.jdc.se.model.PhoneModel;
 
 public class PhoneMaster extends AbstractMasterController<Phone> implements 
 		Callback<CellDataFeatures<Phone, String>, ObservableValue<String>> {
@@ -46,7 +46,7 @@ public class PhoneMaster extends AbstractMasterController<Phone> implements
 	@FXML
 	private TextField color;
 
-	private PhoneMakerModel dm;
+	private Model<Phone_maker> dm;
 
 	@Override
 	public ObservableValue<String> call(CellDataFeatures<Phone, String> param) {
@@ -130,8 +130,8 @@ public class PhoneMaster extends AbstractMasterController<Phone> implements
 			colColor.setCellValueFactory(new PropertyValueFactory<>("color"));
 			colMaker.setCellValueFactory(this);
 
-			model = new PhoneModel();
-			dm = new PhoneMakerModel();
+			model = new CommonModel<Phone>(Phone.class);
+			dm = new CommonModel<Phone_maker>(Phone_maker.class);
 
 			combo.getItems().clear();
 			combo.getItems().addAll(dm.getAll());

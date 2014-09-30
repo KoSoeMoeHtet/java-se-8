@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import com.jdc.se.entity.Division;
-import com.jdc.se.model.DivisionModel;
+import com.jdc.se.model.CommonModel;
 import com.jdc.se.view.dialog.AlertDialog;
 
 public class DivisionMaster extends AbstractMasterController<Division> implements Initializable {
@@ -60,7 +60,7 @@ public class DivisionMaster extends AbstractMasterController<Division> implement
 
 	@Override
 	protected void init() {
-		model = new DivisionModel();
+		model = new CommonModel<Division>(Division.class);
 		colId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		colName.setCellValueFactory(new PropertyValueFactory<>("name"));
 	}

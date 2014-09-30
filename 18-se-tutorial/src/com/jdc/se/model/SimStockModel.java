@@ -7,17 +7,12 @@ import java.util.Map;
 
 import com.jdc.se.entity.Sim_stock;
 
-public class SimStockModel extends AbstractModel<Sim_stock> implements StockModel<Sim_stock>{
+public class SimStockModel extends CommonModel<Sim_stock> implements StockModel<Sim_stock>{
 
 	public SimStockModel() {
 		super(Sim_stock.class);
 		super.creation = true;
 		super.modification = true;
-	}
-
-	@Override
-	protected Sim_stock getEntity() {
-		return new Sim_stock();
 	}
 
 	@Override
