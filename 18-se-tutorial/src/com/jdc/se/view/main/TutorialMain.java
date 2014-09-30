@@ -3,6 +3,7 @@ package com.jdc.se.view.main;
 import java.io.IOException;
 
 import com.jdc.se.view.master.MasterMenu;
+import com.jdc.se.view.stock.StockManagement;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,7 +43,19 @@ public class TutorialMain {
 	}
 	
 	public void showStock() {
-		
+		try {
+			Stage stage = new Stage();
+			Parent parent = FXMLLoader.load(StockManagement.class.getResource("StockManagement.fxml"));
+			stage.setScene(new Scene(parent));
+			
+			stage.setTitle("Stock Management");
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(btn.getScene().getWindow());
+			stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

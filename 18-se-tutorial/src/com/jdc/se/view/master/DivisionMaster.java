@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import com.jdc.se.entity.Division;
 import com.jdc.se.model.DivisionModel;
+import com.jdc.se.view.dialog.AlertDialog;
 
 public class DivisionMaster extends AbstractMasterController<Division> implements Initializable {
 
@@ -34,9 +35,14 @@ public class DivisionMaster extends AbstractMasterController<Division> implement
 
 	@Override
 	protected Map<String, Object> getViewParam() {
-		Map<String, Object> param = new LinkedHashMap<>();
-		param.put("name", name.getText());
-		return param;
+		if(name.getText().trim().isEmpty()) {
+			AlertDialog.showDialog("Warning", "Please set name input.", name.getScene().getWindow());
+		} else {
+			Map<String, Object> param = new LinkedHashMap<>();
+			param.put("name", name.getText());
+			return param;
+		}
+		return null;
 	}
 
 

@@ -80,7 +80,7 @@ public class PhoneMaster extends AbstractMasterController<Phone> implements
 		String strColor = color.getText().trim();
 		
 		if (null == d) {
-			throw new ModelException("Please select division.", false);
+			throw new ModelException("Please select phone maker.", false);
 		}
 
 		if (strName.isEmpty()) {

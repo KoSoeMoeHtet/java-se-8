@@ -15,6 +15,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
 
 import com.jdc.se.model.AbstractModel;
+import com.jdc.se.model.ModelException;
+import com.jdc.se.view.dialog.AlertDialog;
 
 public abstract class AbstractMasterController<T> implements Initializable{
 	
@@ -72,16 +74,22 @@ public abstract class AbstractMasterController<T> implements Initializable{
 	public void add(ActionEvent e) {
 		try {
 			Button b = (Button) e.getSource();
-			if(ADD.equals(b.getText())) {
-				model.insert(getViewParam());
-			} else {
-				model.update(getViewParam(), getId());
+			Map<String, Object> param =getViewParam();
+			if(null != param) {
+				if(ADD.equals(b.getText())) {
+					model.insert(getViewParam());
+				} else {
+					model.update(getViewParam(), getId());
+				}
+				this.clear(e);
+				this.loadTable();
 			}
-			this.clear(e);
-			this.loadTable();
 		} catch (SQLException e1) {
-			e1.printStackTrace();
+			AlertDialog.showDialog("Error", e1.getMessage(), table.getScene().getWindow());
+		} catch (ModelException e1) {
+			AlertDialog.showDialog("Warning", e1.getMessage(), table.getScene().getWindow());
 		}
+		
 	}
 	
 	@Override
@@ -110,7 +118,7 @@ public abstract class AbstractMasterController<T> implements Initializable{
 		try {
 			this.loadTable();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			AlertDialog.showDialog("Error", e.getMessage(), table.getScene().getWindow());
 		}
 	}
 }

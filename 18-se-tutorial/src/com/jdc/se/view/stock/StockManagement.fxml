@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="534.0" prefWidth="762.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="602.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.se.view.stock.StockManagement">
+   <children>
+      <Label layoutX="28.0" layoutY="26.0" text="Stock Management">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <ToggleButton fx:id="phone" layoutX="412.0" layoutY="29.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Phone">
+         <toggleGroup>
+            <ToggleGroup fx:id="stock" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton fx:id="sim" layoutX="335.0" layoutY="29.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" selected="true" text="Sim Card" toggleGroup="$stock" />
+      <StackPane fx:id="pane" layoutX="28.0" layoutY="76.0" prefHeight="514.0" prefWidth="936.0" />
+   </children>
 </AnchorPane>
