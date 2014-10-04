@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
 
+<AnchorPane prefHeight="680.0" prefWidth="980.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Label layoutX="54.0" layoutY="37.0" text="Customer Management">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <TableView layoutX="54.0" layoutY="197.0" prefHeight="452.0" prefWidth="899.0">
+        <columns>
+          <TableColumn prefWidth="49.0" text="ID" />
+          <TableColumn prefWidth="160.0" text="Name" />
+            <TableColumn prefWidth="141.0" text="NRC Number" />
+            <TableColumn prefWidth="168.0" text="Phone" />
+            <TableColumn prefWidth="157.0" text="Email" />
+            <TableColumn prefWidth="219.0" text="Address" />
+        </columns>
+      </TableView>
+      <TextField layoutX="54.0" layoutY="80.0" prefHeight="26.0" prefWidth="62.0" promptText="ID" />
+      <TextField layoutX="123.0" layoutY="80.0" promptText="Name" />
+      <TextField layoutX="284.0" layoutY="80.0" prefHeight="26.0" prefWidth="178.0" promptText="NRC Number" />
+      <TextField layoutX="123.0" layoutY="116.0" promptText="Phone" />
+      <TextField layoutX="284.0" layoutY="116.0" prefHeight="26.0" prefWidth="178.0" promptText="Email" />
+      <ComboBox layoutX="124.0" layoutY="151.0" prefWidth="150.0" promptText="Division" />
+      <ComboBox layoutX="284.0" layoutY="151.0" prefHeight="26.0" prefWidth="178.0" promptText="Township" />
+   </children>
+</AnchorPane>

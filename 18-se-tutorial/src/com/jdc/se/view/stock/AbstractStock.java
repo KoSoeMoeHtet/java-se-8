@@ -95,6 +95,7 @@ public abstract class AbstractStock<T, K> implements Initializable {
 			} else {
 				stkModel.updateStock(getViewData());
 				add.setText(ADD);
+				clear();
 			}
 			this.clearInputs();
 			loadTable();
@@ -104,12 +105,19 @@ public abstract class AbstractStock<T, K> implements Initializable {
 		} catch (ModelException e1) {
 			AlertDialog.showDialog("Warning", e1.getMessage(), table.getScene()
 					.getWindow());
+		} catch (IllegalArgumentException e) {
+			AlertDialog.showDialog("Error", e.getMessage(), table.getScene()
+					.getWindow());
+		} catch (IllegalAccessException e) {
+			AlertDialog.showDialog("Error", e.getMessage(), table.getScene()
+					.getWindow());
 		}
 	}
 
 	public void clear() {
 		this.clearTable();
 		this.clearInputs();
+		add.setText(ADD);
 	}
 
 	private void clearTable() {
