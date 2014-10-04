@@ -12,7 +12,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import com.jdc.se.entity.Phone;
 import com.jdc.se.entity.Phone_stock;
-import com.jdc.se.entity.Sim_stock;
 import com.jdc.se.model.CommonModel;
 import com.jdc.se.model.ModelException;
 import com.jdc.se.model.PhoneStockModel;
