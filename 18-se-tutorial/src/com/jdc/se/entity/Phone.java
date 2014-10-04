@@ -45,4 +45,8 @@ public class Phone {
 	public void setColor(String color) {
 		this.color = color;
 	}
+	@Override
+	public String toString() {
+		return String.format("%s - %s", this.name, this.memory);
+	}
 }
