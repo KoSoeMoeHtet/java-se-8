@@ -1,10 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="680.0" prefWidth="980.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
+<VBox prefHeight="680.0" prefWidth="1080.0" stylesheets="@trans.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.se.view.trans.TransactionManager">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Download" />
+            <MenuItem mnemonicParsing="false" text="Upload" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+            <Menu mnemonicParsing="false" text="Reference">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Details" />
+                  <MenuItem mnemonicParsing="false" text="History" />
+              </items>
+            </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Edit" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About Transaction Manager" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane>
+          <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Search" textAlignment="CENTER" wrapText="false">
+              <font>
+                <Font size="18.0" fx:id="x1" />
+              </font>
+              <textFill>
+                <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+              </textFill>
+            </Label>
+                  <GridPane layoutX="14.0" layoutY="51.0" prefHeight="535.0" prefWidth="233.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Id" />
+                        <Label text="Customer Name" GridPane.rowIndex="2" />
+                        <Label text="NRC Number" GridPane.rowIndex="4" />
+                        <Label text="Phone Number" GridPane.rowIndex="6" />
+                        <Label text="Division" GridPane.rowIndex="8" />
+                        <Label text="Phone " GridPane.rowIndex="10" />
+                        <Label text="Sim Card" GridPane.rowIndex="12" />
+                        <Label text="Date From " GridPane.rowIndex="14" />
+                        <Label text="Date To" GridPane.rowIndex="16" />
+                        <TextField fx:id="id" GridPane.rowIndex="1" />
+                        <TextField fx:id="name" GridPane.rowIndex="3" />
+                        <TextField fx:id="nrc" GridPane.rowIndex="5" />
+                        <TextField fx:id="phone" GridPane.rowIndex="7" />
+                        <ComboBox fx:id="divisions" prefHeight="26.0" prefWidth="234.0" GridPane.rowIndex="9" />
+                        <ComboBox fx:id="phones" prefHeight="26.0" prefWidth="233.0" GridPane.rowIndex="11" />
+                        <ComboBox fx:id="sims" prefHeight="26.0" prefWidth="233.0" GridPane.rowIndex="13" />
+                        <DatePicker fx:id="dateFrom" prefHeight="26.0" prefWidth="234.0" GridPane.rowIndex="15" />
+                        <DatePicker fx:id="dateTo" prefHeight="26.0" prefWidth="234.0" GridPane.rowIndex="17" />
+                     </children>
+                  </GridPane>
+                  <Button layoutX="14.0" layoutY="595.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="117.0" text="Clear" />
+                  <Button layoutX="134.0" layoutY="595.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="117.0" text="Search" />
+          </children>
+        </AnchorPane>
+        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+          <content>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="306.0" prefWidth="669.0">
+              <children>
+                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Transaction List" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                        <TableView fx:id="table" layoutX="18.0" layoutY="45.0" prefHeight="575.0">
+                          <columns>
+                            <TableColumn fx:id="colId" prefWidth="42.0" text="Id" />
+                            <TableColumn fx:id="colCustomer" prefWidth="130.0" text="Customer" />
+                              <TableColumn fx:id="colCreation" prefWidth="134.0" text="Business Date" />
+                              <TableColumn fx:id="colPhone" prefWidth="154.0" text="Phone" />
+                              <TableColumn fx:id="colSim" prefWidth="152.0" text="Sim Card" />
+                              <TableColumn fx:id="colTotal" prefWidth="164.0" text="Total" />
+                          </columns>
+                        </TableView>
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+      </items>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" prefWidth="1080.0" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+          </textFill>
+        </Label>
+        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>
