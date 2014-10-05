@@ -59,7 +59,7 @@ public class PhoneStock extends AbstractStock<Phone_stock, Phone> {
 		// sim
 		Phone phone = combo.getValue();
 		if (null == phone) {
-			throw new ModelException("Please select Sim Card.", false);
+			throw new ModelException("Please select Phone.", false);
 		}
 		map.put("phone_id", phone.getId());
 
@@ -76,7 +76,7 @@ public class PhoneStock extends AbstractStock<Phone_stock, Phone> {
 		try {
 			map.put("buy_price", Integer.parseInt(buy.getText()));
 		} catch (NumberFormatException e) {
-			throw new ModelException("Please set amount with valid number.",
+			throw new ModelException("Please set price with valid number.",
 					false);
 		}
 
@@ -84,7 +84,7 @@ public class PhoneStock extends AbstractStock<Phone_stock, Phone> {
 		try {
 			map.put("sell_price", Integer.parseInt(sell.getText()));
 		} catch (NumberFormatException e) {
-			throw new ModelException("Please set amount with valid number.",
+			throw new ModelException("Please set price with valid number.",
 					false);
 		}
 
