@@ -28,16 +28,16 @@ public class GameOwner {
 	
 	public Result check() {
 		
-		if(isOnPlaying()) {
-			return Result.ON_PLAYING;
-		}
-		
 		if(isUserWin()) {
 			return Result.USER_WIN;
 		}
 		
 		if(isSystemWin()) {
 			return Result.SYSTEM_WIN;
+		}
+		
+		if(isOnPlaying()) {
+			return Result.ON_PLAYING;
 		}
 		
 		return Result.DRAW;
@@ -105,7 +105,6 @@ public class GameOwner {
 			}
 		}
 		
-		System.out.println("left cross " + index );
 		if(index == 3) 
 			return true;
 		
@@ -120,8 +119,6 @@ public class GameOwner {
 			}
 		}
 		
-		System.out.println("right cross " + index );
-
 		if(index == 3) 
 			return true;
 

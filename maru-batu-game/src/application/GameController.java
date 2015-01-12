@@ -1,13 +1,8 @@
 package application;
 
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 
-import application.util.ButtonCountGetter;
-import application.util.GameOwner;
-import application.util.GameOwner.Result;
-import application.util.Marker;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,6 +10,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import application.util.ButtonCountGetter;
+import application.util.GameOwner;
+import application.util.GameOwner.Result;
+import application.util.Marker;
+import application.util.SystemPlayer;
 
 public class GameController implements Initializable, ButtonCountGetter{
 	
@@ -32,6 +32,7 @@ public class GameController implements Initializable, ButtonCountGetter{
 	private Button [][] chart;
 	
 	private GameOwner owner;
+	private SystemPlayer system;
 	
 	public void clear() {
 		btns = new Button[grid.getChildren().size()];
@@ -69,6 +70,7 @@ public class GameController implements Initializable, ButtonCountGetter{
 		}
 		
 		owner = new GameOwner(chart, this);
+		system = new SystemPlayer(chart);
 	}
 
 	private int getColumn(Button b) {
@@ -85,17 +87,12 @@ public class GameController implements Initializable, ButtonCountGetter{
 		// remove selected button from button array
 		removeFromButtons(b);
 		
-		// get random count (System select number)
-		int index = getSystemIndex();
-		
-		// get system selected button
-		Button systemSelected = btns[index];
-		
-		// set text from system selected
-		systemSelected.setText(Marker.SYSTEM.getResult());
-		
 		// remove system selected button from button array
-		removeFromButtons(systemSelected);
+		Button sysBtn = system.select();
+		if(null != sysBtn) 
+			sysBtn.setText(Marker.SYSTEM.getResult());
+		
+		removeFromButtons(sysBtn);
 		
 		// evaluate and set result
 		this.evluate();
@@ -121,10 +118,6 @@ public class GameController implements Initializable, ButtonCountGetter{
 	private void plus(Label lbl) {
 		int original = Integer.parseInt(lbl.getText());
 		lbl.setText(String.valueOf(original + 1));
-	}
-
-	private int getSystemIndex() {
-		return new Random().nextInt(btns.length);
 	}
 
 	private void removeFromButtons(Button b) {
