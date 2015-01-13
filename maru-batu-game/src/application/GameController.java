@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -28,17 +29,15 @@ public class GameController implements Initializable, ButtonCountGetter{
 	@FXML
 	private GridPane grid;
 	
-	private Button [] btns;
 	private Button [][] chart;
 	
 	private GameOwner owner;
 	private SystemPlayer system;
 	
 	public void clear() {
-		btns = new Button[grid.getChildren().size()];
-		for (int i = 0; i < btns.length; i++) {
-			Button b = (Button) grid.getChildren().get(i);
-			btns[i] = b;
+		lock(false);
+		for (Node n : grid.getChildren()) {
+			Button b = (Button) n;
 			b.setText("");
 		}
 	}
@@ -53,16 +52,21 @@ public class GameController implements Initializable, ButtonCountGetter{
 	public void initialize(URL location, ResourceBundle resources) {
 		chart = new Button[3][3];
 		
-		btns = new Button[grid.getChildren().size()];
-		for (int i = 0; i < btns.length; i++) {
-			Button b = (Button) grid.getChildren().get(i);
-			btns[i] = b;
+		for (Node n : grid.getChildren()) {
+			Button b = (Button) n;
 			b.setOnAction(new EventHandler<ActionEvent>() {
 				
 				@Override
 				public void handle(ActionEvent event) {
 					Button b = (Button) event.getSource();
-					clickButton(b);
+					// user select
+					b.setText(Marker.USER.getResult());
+
+					// system select
+					system.select().setText(Marker.SYSTEM.getResult());
+
+					// evaluate and set result
+					evluate();
 				}
 			});
 			
@@ -81,38 +85,30 @@ public class GameController implements Initializable, ButtonCountGetter{
 		return Integer.parseInt(b.getId())/3;
 	}
 
-	protected void clickButton(Button b) {
-		b.setText(Marker.USER.getResult());
-		
-		// remove selected button from button array
-		removeFromButtons(b);
-		
-		// remove system selected button from button array
-		Button sysBtn = system.select();
-		if(null != sysBtn) 
-			sysBtn.setText(Marker.SYSTEM.getResult());
-		
-		removeFromButtons(sysBtn);
-		
-		// evaluate and set result
-		this.evluate();
-	}
-
 	private void evluate() {
 		Result result = owner.check();
 		
 		if(result.equals(Result.SYSTEM_WIN)) {
 			plus(systemResult);
 			message.setText("System Win! If you want to continue, press clear!");
+			lock(true);
 		} else if (result.equals(Result.USER_WIN)) {
 			plus(userResult);
 			message.setText("You win! If you want to continue, press clear!");
+			lock(true);
 		} else if (result.equals(Result.DRAW)) {
 			message.setText("Draw! If you want to continue, press clear!");
+			lock(true);
 		} else {
 			message.setText("Try your best! Come On!");
 		}
-		
+	}
+	
+	private void lock(boolean lockMode) {
+		for(Node n : grid.getChildren()) {
+			Button b = (Button) n;
+			b.setDisable(lockMode);
+		}
 	}
 
 	private void plus(Label lbl) {
@@ -120,23 +116,16 @@ public class GameController implements Initializable, ButtonCountGetter{
 		lbl.setText(String.valueOf(original + 1));
 	}
 
-	private void removeFromButtons(Button b) {
-		if(btns.length > 1) {
-			Button [] tempArray = new Button[btns.length -1];
-			int j = 0;
-			for (int i = 0; i < btns.length; i++) {
-				if(!b.getId().equals(btns[i].getId())) {
-					tempArray[j] = btns[i];
-					j++;
-				}
-			}
-			btns = tempArray;
-		}
-	}
-
 	@Override
 	public int getButtonCount() {
-		return btns.length;
+		int count = 0;
+		for(Node n : grid.getChildren()) {
+			Button b = (Button) n;
+			if(b.getText().isEmpty()) {
+				count ++;
+			}
+		}
+		return count;
 	}
 	
 	
