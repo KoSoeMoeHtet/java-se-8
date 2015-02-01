@@ -1,6 +1,5 @@
-package com.jdc.ls16.ep4;
+package com.jdc.ls16.ep3;
 
-import com.jdc.ls16.ep3.T0Common;
 
 public class T1Filter {
 

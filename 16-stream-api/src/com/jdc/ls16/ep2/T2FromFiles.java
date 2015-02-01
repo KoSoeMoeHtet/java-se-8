@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 public class T2FromFiles {
 
 	public static void main(String[] args) throws IOException {
-		Files.readAllLines(Paths.get("T2FromFiles.txt")).stream()
+		Files.lines(Paths.get("T2FromFiles.txt"))
 				.forEach(System.out::println);
 	}
 
