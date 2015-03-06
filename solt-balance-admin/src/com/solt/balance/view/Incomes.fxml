@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="594.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.solt.balance.view.Incomes">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="980.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Incomes">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Text>
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="533.0" prefWidth="980.0" spacing="20.0">
+         <children>
+            <VBox prefHeight="532.0" prefWidth="300.0" spacing="10.0">
+               <children>
+                  <Label text="STAFF" />
+                  <ComboBox fx:id="employees" prefHeight="26.0" prefWidth="297.0" promptText="Select Staff" />
+                  <Label text="CATEGORY" />
+                  <ComboBox fx:id="categories" prefHeight="26.0" prefWidth="296.0" promptText="Select Category" />
+                  <Label text="AMOUNT" />
+                  <TextField fx:id="amount" promptText="Enter Amount - MMK" />
+                  <Label text="Remark" />
+                  <TextArea prefHeight="155.0" prefWidth="296.0" promptText="Enter Remark" />
+                  <HBox prefHeight="34.0" prefWidth="296.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#clear" prefHeight="26.0" prefWidth="94.0" text="CLEAR" />
+                        <Button mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="94.0" text="ADD" />
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="94.0" text="SAVE ALL" />
+               </children>
+            </VBox>
+            <TableView fx:id="table" prefHeight="512.0" prefWidth="639.0">
+              <columns>
+                <TableColumn fx:id="colDate" prefWidth="130.0" text="DATE" />
+                  <TableColumn fx:id="colEmployee" prefWidth="153.0" text="STAFF" />
+                  <TableColumn fx:id="colCategory" prefWidth="179.0" text="CATEGORY" />
+                  <TableColumn fx:id="colAmount" prefWidth="168.0" text="AMOUNT" />
+              </columns>
+            </TableView>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="344.0" prefWidth="583.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.solt.balance.view.MessageView">
+   <children>
+      <Text layoutX="30.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Solt Balance Messages">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Label fx:id="messageType" layoutX="30.0" layoutY="71.0" prefHeight="16.0" />
+      <TextArea fx:id="message" editable="false" layoutX="28.0" layoutY="124.0" prefHeight="153.0" prefWidth="527.0" />
+      <Button layoutX="28.0" layoutY="294.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="119.0" text="Close" />
+   </children>
+</AnchorPane>

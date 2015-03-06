@@ -1,0 +1,4 @@
+1-Java SE Fees-IN
+2-Java EE Fees-IN
+3-Electrical Charges-OUT
+4-Water Charges-OUT

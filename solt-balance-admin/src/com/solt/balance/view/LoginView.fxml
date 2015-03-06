@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="274.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.solt.balance.view.LoginView">
+   <children>
+      <Text layoutX="29.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Solt Balance Login">
+         <font>
+            <Font name="Athelas Regular" size="28.0" />
+         </font>
+      </Text>
+      <TextField fx:id="userId" layoutX="70.0" layoutY="109.0" prefHeight="26.0" prefWidth="312.0" promptText="Enter User ID" />
+      <PasswordField fx:id="pass" layoutX="70.0" layoutY="154.0" prefHeight="26.0" prefWidth="312.0" promptText="Enter Password" />
+      <Button layoutX="70.0" layoutY="197.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="112.0" text="Cancel" />
+      <Button layoutX="197.0" layoutY="197.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="112.0" text="Login" />
+   </children>
+</AnchorPane>

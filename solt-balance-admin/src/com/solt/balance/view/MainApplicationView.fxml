@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="680.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.solt.balance.view.MainApplicationView">
+   <children>
+      <MenuBar prefHeight="29.0" prefWidth="980.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="close" mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu fx:id="edit" mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Incomes" />
+                  <MenuItem mnemonicParsing="false" text="Expenses" />
+            </items>
+          </Menu>
+            <Menu fx:id="meta" mnemonicParsing="false" text="Metadata">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Category" />
+                  <MenuItem mnemonicParsing="false" text="Employee" />
+              </items>
+            </Menu>
+          <Menu fx:id="open" mnemonicParsing="false" text="Reference">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Incomes List" />
+                  <MenuItem mnemonicParsing="false" text="Expenses List" />
+                  <MenuItem mnemonicParsing="false" text="Balances" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <StackPane fx:id="pane" prefHeight="594.0" prefWidth="980.0" />
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="980.0" style="-fx-background-color: skyblue;">
+         <children>
+            <Label fx:id="message" />
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
