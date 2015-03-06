@@ -74,7 +74,8 @@ public class IncomesList implements Initializable{
 		table.getItems().clear();
 		table.getItems().addAll(BalanceModel.getModel().getWhere(a -> {
 			LocalDateTime businessDate = LocalDateTime.ofInstant(a.getDate().toInstant(), ZoneId.systemDefault());
-			return businessDate.isAfter(from.getValue().atStartOfDay()) && 
+			return a.getCategory().getType().equals("IN") &&
+					businessDate.isAfter(from.getValue().atStartOfDay()) && 
 					businessDate.isBefore(to.getValue().plusDays(1).atStartOfDay());
 		}));
 		
