@@ -8,14 +8,15 @@ import com.solt.balance.model.entity.Balance;
 public class BalanceModel extends BaseModel<Balance> {
 
 	private static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	
+	private static final String DEL = "\t";
+	private static final String FORMAT = "%d"+ DEL +"%s" + DEL + "%d"  + DEL + "%d" + DEL + "%d" + DEL +"%s";
 	BalanceModel() {
 		super(
-			a -> String.format("%d-%s-%d-%d-%d-%s", 
+			a -> String.format(FORMAT, 
 					a.getId(), df.format(a.getDate()),
 					a.getEmployee().getId(), a.getCategory().getId(), a.getAmount(), a.getRemark()), 
 			a -> {
-				String [] strs = a.split("-");
+				String [] strs = a.split(DEL);
 				try {
 					if(strs.length >= 5) {
 						Balance b = new Balance();
@@ -43,5 +44,14 @@ public class BalanceModel extends BaseModel<Balance> {
 	public void add(Balance t) throws IOException {
 		t.setId(generate());
 		super.add(t);
+	}
+	
+	private static BalanceModel MODEL;
+	
+	public static BalanceModel getModel() {
+		if(null == MODEL)
+			MODEL = new BalanceModel();
+		
+		return MODEL;
 	}
 }

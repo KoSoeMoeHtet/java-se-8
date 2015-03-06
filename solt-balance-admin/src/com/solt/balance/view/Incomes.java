@@ -14,6 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import com.solt.balance.model.BalanceModel;
 import com.solt.balance.model.CategoryModel;
 import com.solt.balance.model.EmployeeModel;
 import com.solt.balance.model.entity.Balance;
@@ -77,6 +78,7 @@ public class Incomes implements Initializable {
 			// add to table
 			this.table.getItems().add(b);
 		} catch (RuntimeException e) {
+			e.printStackTrace();
 			MessageView.showMessage("Warning", e.getMessage(), table.getScene()
 					.getWindow());
 		}
@@ -114,6 +116,14 @@ public class Incomes implements Initializable {
 	}
 
 	public void save() {
-
+		table.getItems().forEach(a -> {
+			try {
+					BalanceModel.getModel().add(a);
+				} catch(Exception e) {
+					System.err.println(e.getMessage());
+				}
+			});
+		
+		this.clear();
 	}
 }

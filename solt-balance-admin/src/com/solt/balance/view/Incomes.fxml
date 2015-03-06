@@ -32,7 +32,7 @@
                   <Label text="AMOUNT" />
                   <TextField fx:id="amount" promptText="Enter Amount - MMK" />
                   <Label text="Remark" />
-                  <TextArea prefHeight="155.0" prefWidth="296.0" promptText="Enter Remark" />
+                  <TextArea fx:id="remark" prefHeight="155.0" prefWidth="296.0" promptText="Enter Remark" />
                   <HBox prefHeight="34.0" prefWidth="296.0" spacing="10.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#clear" prefHeight="26.0" prefWidth="94.0" text="CLEAR" />
