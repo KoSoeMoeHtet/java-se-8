@@ -1,4 +1,4 @@
-package com.solt.balance.view;
+package com.solt.balance.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import com.solt.balance.model.CategoryModel;
 import com.solt.balance.model.entity.Category;
+import com.solt.balance.view.MessageView;
 
 public class CategoryAdmin implements Initializable {
 

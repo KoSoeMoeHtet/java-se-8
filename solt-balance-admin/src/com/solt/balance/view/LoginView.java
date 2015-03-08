@@ -1,35 +1,33 @@
 package com.solt.balance.view;
 
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.util.Properties;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class LoginView implements Initializable{
-	
-	private Properties props;
+import com.solt.balance.model.EmployeeModel;
+
+public class LoginView implements LoginController{
 	
 	@FXML
 	private TextField userId;
 	@FXML
 	private PasswordField pass;
 	
+	private UserHomeHandler handler;
+
 	public void login() {
 		
-		String user = props.getProperty("login");
-		String pass = props.getProperty("pass");
 		
-		if(user.equals(userId.getText()) && 
-				pass.equals(this.pass.getText())) {
-			MainApplicationView.showAppWindow(userId.getScene().getWindow());
+		if(EmployeeModel.getModel().getWhere(a -> {
+			if(a.getName().equals(userId.getText()) 
+					&& a.getPassword().equals(pass.getText())) {
+				return true;
+			}
+			return false;
+		}).size() > 0) {
+			this.handler.openHome();
+			userId.getScene().getWindow().hide();
+			
 		} else {
 			// if error
 			MessageView.showMessage("Error", "You need to login.", userId.getScene().getWindow());
@@ -42,13 +40,8 @@ public class LoginView implements Initializable{
 	}
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		props = new Properties();
-		try {
-			props.load(Files.newInputStream(Paths.get("user.properties"), StandardOpenOption.READ));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void setHandler(UserHomeHandler handler) {
+		this.handler = handler;
 	}
 
 }

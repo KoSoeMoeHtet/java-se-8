@@ -73,4 +73,9 @@ public class BaseModel<T> implements Model<T> {
 		return list.size() + 1;
 	}
 
+	@Override
+	public int size() {
+		return list.size();
+	}
+
 }

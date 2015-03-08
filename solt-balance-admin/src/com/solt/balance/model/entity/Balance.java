@@ -9,6 +9,7 @@ public class Balance {
 	private Employee employee;
 	private Category category;
 	private int amount;
+	private int balance;
 	
 	private String remark;
 	
@@ -47,6 +48,14 @@ public class Balance {
 	}
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+	
+	public int getBalance() {
+		return balance;
+	}
+	
+	public void setBalance(int balance) {
+		this.balance = balance;
 	}
 
 }

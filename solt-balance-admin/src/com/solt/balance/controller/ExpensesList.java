@@ -1,4 +1,4 @@
-package com.solt.balance.view;
+package com.solt.balance.controller;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -16,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import com.solt.balance.model.BalanceModel;
 import com.solt.balance.model.entity.Balance;
+import com.solt.balance.view.MessageView;
 import com.solt.balance.view.cell.CategoryCallback;
 import com.solt.balance.view.cell.DateCallBack;
 import com.solt.balance.view.cell.EmployeeCallback;

@@ -1,4 +1,4 @@
-package com.solt.balance.view;
+package com.solt.balance.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,6 +11,7 @@ import com.solt.balance.model.EmployeeModel;
 import com.solt.balance.model.entity.Balance;
 import com.solt.balance.model.entity.Category;
 import com.solt.balance.model.entity.Employee;
+import com.solt.balance.view.MessageView;
 import com.solt.balance.view.cell.CategoryCallback;
 import com.solt.balance.view.cell.DateCallBack;
 import com.solt.balance.view.cell.EmployeeCallback;

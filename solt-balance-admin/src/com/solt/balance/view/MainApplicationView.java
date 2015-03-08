@@ -53,6 +53,8 @@ public class MainApplicationView implements Initializable {
 		for (MenuItem m : meta.getItems()) {
 			m.setOnAction(this::loadView);
 		}
+
+		this.home();
 	}
 
 	public void loadView(ActionEvent e) {
@@ -85,6 +87,15 @@ public class MainApplicationView implements Initializable {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void home() {
+		try {
+			pane.getChildren().clear();
+			pane.getChildren().add(FXMLLoader.load(getClass().getResource("Home.fxml")));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

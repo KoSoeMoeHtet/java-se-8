@@ -10,4 +10,5 @@ public interface Model<T> {
 	public List<T> getAll();
 	public List<T> getWhere(Predicate<T> pred);
 	public T findById(Predicate<T> pred);
+	public int size();
 }
