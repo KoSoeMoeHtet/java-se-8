@@ -24,5 +24,6 @@ public class ChangingValue {
 		System.out.format("%s : %s%n", "lastDayOfMonth", now.with(TemporalAdjusters.lastDayOfMonth()));
 		
 		System.out.format("%s : %s%n", "Truncate To", now.truncatedTo(ChronoUnit.MINUTES));
+		
 	}
 }

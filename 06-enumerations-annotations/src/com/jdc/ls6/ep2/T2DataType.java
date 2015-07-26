@@ -14,5 +14,11 @@ public enum T2DataType {
 		}
 	};
 	
-	public abstract String doSomething();
+	public String doSomething() {
+		return null;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("Hello");
+	}
 }

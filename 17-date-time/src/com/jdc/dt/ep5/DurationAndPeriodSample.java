@@ -9,7 +9,6 @@ public class DurationAndPeriodSample {
 	
 	public static void main(String[] args) {
 		// periods
-		 
 		LocalDate firstDate = LocalDate.of(2010, 5, 17); // 2010-05-17
 		LocalDate secondDate = LocalDate.of(2015, 3, 7); // 2015-03-07
 		Period period = Period.between(firstDate, secondDate);
@@ -34,7 +33,6 @@ public class DurationAndPeriodSample {
 		 
 		 
 		// durations
-		 
 		Instant firstInstant= Instant.ofEpochSecond( 1294881180 ); // 2011-01-13 01:13
 		Instant secondInstant = Instant.ofEpochSecond(1294708260); // 2011-01-11 01:11
 		System.out.format("%s : %s%n", "firstInstant", firstInstant);

@@ -30,4 +30,10 @@ public enum T1MyanmarKyat {
 		res += "kyat";
 		return res;
 	}
+	
+	public static void main(String[] args) {
+		for(T1MyanmarKyat t : T1MyanmarKyat.values()) {
+			System.out.println(t);
+		}
+	}
 }
